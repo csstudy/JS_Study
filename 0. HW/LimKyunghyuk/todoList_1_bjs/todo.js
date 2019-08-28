@@ -1,52 +1,24 @@
 window.onload = function () {
-	
-}
 
+	document.getElementById('btn-add').onclick = function(){
 
-		// document.getElementById(아이디).onclick = function(){ 실행할 코드 }
-function addTodo(){
-	
+		var inputTodo = document.getElementById('input-todo');
 
-	var inputTodo = document.getElementById('input-todo');
+		var todoList = document.getElementById('todo-list');
 
-	var todoList = document.getElementById('todo-list');
+		var item = document.createElement('li');
 
-	var item = document.createElement('li');
+		item.innerHTML  = inputTodo.value;
 
-	item.innerHTML  = inputTodo.value;
+		item.addEventListener('click', function () {
+				
+			// console.log(this);
+			todoList.removeChild(this);	
 
-	var list = todoList.childNodes;
+		});
 
-	console.log('>>' + list.length);
+		todoList.appendChild(item);
 
-
-
-
-
-
-/*
-	item.addEventListener('click', function (index) {
-		//console.log(this.innerHTML + index);
-		console.log(index);
-	});
-
-*/
-
-	todoList.appendChild(item);
-/*
-	for (var i = 0; i < list.length; i++) {
-		((i)=>{
-			list[i].addEventListener('click', ()=>{
-				alert(i);
-			})
-		})(i);
+		inputTodo.value = '';
 	}
-*/
-	inputTodo.value = '';
-
-}
-
-function handler(){
-	console.log(">>" + event);
-
 }
