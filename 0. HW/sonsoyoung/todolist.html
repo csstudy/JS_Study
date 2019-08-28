@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 할 일 입력 칸에 커서 기본 설정
+            document.getElementById('inputText').focus();
+
+
+            // 할 일 추가 버튼 
+            var btnNew = document.getElementById('btnAdd');
+
+            // 할 일 추가 버튼 클릭 시
+            btnNew.onclick = function () {
+                //입력한 할 일 텍스트
+                var inputText = document.getElementById('inputText').value;
+
+                addNewItem(document.getElementById('todolist'), inputText);
+
+            };
+
+            // 리스트에 할 일 추가 해주는 함수
+            function addNewItem(list, inputText) {
+                // li 객체 생성 후 입력 받은 할 일 텍스트 넣어줌.
+                var listItem = document.createElement('li');
+                listItem.innerText = inputText;
+
+                // ul의 자식으로 생성한 li객체 추가
+                list.appendChild(listItem)
+            }
+        })
+    </script>
+</head>
+<body>
+    <h1>to do list</h1>
+    <p>
+        <input type="text" id="inputText"/>
+        <button id="btnAdd">New item</button>
+    </p>
+
+    <ul id="todolist">
+
+    </ul>
+</body>
+</html>
+
+
+
+
