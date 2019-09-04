@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            To Do List
+        </title>
+
+        <link rel="stylesheet" href = "style.css"/>
+
+        <script>
+            window.onload = function(){
+                var input = document.getElementById("todo")
+                var button = document.getElementById('save')
+                var ul = document.getElementById("list")
+
+                save.onclick = function(){
+                    var li = document.createElement("li")
+                    
+                    console.log(input.value)
+                    li.innerHTML = input.value + '\n'
+                    ul.appendChild(li)
+
+                    input.value = ''
+                }
+
+                // 초기화
+                refresh.onclick = function(index){
+                    while(ul.firstChild)
+                    ul.removeChild(ul.firstChild)
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <div id = "title" class = "title">
+            To Do List
+        </div>
+
+        <div>
+            <div>
+                <input id = "todo" type = "text" placeholder = "할 일을 입력해주세요."/>
+                <button id = "save" class = "save">등록</button>
+                <button id = "refresh" class = "save">초기화</button>
+            </div>
+
+            <!--등록된 할 일 조회-->
+            <div>
+                <ul id = "list"></ul>
+            </div>
+
+        </div>
+    </body>
+
+</html>
