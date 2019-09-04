@@ -1,58 +1,35 @@
+
 $(document).ready(()=>{
 
 	$('#btn-add').click(()=>{
 
-		var item = document.createElement('li');
+		var todo = $('#input-todo').val();
+		var idx = 0;
 
-
-
-		var v = $('#input-todo').val();
-		var item = $('<li>' + v + '</li>');
-
-		item.addEventListener('click', function () {
-				
-			// console.log(this);
-			$('#todo-list').remove(this);	
+		$('#todo-list li').each(function(index, item){ 
+			
+			if(idx < $(this).attr('id')){
+				idx = $(this).attr('id');
+			}
 
 		});
+
+
+		var item = $('<li id = ' + ++idx + '>' + todo + '</li>');
+
+	    item.bind('click', function() {
+		        
+	    	var id = $(this).attr('id');
+			console.log('delete id :' + id);
+
+			$('#' + id).remove();
+	        
+	    }); 
+
 
 		$('#todo-list').append(item);
 
 		$('#input-todo').val('');
 
 	})
-
-
-
 });
-
-
-/*
-
-window.onload = function () {
-
-
-	document.getElementById('btn-add').onclick = function(){
-
-		var inputTodo = document.getElementById('input-todo');
-
-		var todoList = document.getElementById('todo-list');
-
-		var item = document.createElement('li');
-
-		item.innerHTML  = inputTodo.value;
-
-		item.addEventListener('click', function () {
-				
-			// console.log(this);
-			todoList.removeChild(this);	
-
-		});
-
-		todoList.appendChild(item);
-
-		inputTodo.value = '';
-	}
-}
-
-*/
