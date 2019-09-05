@@ -12,7 +12,7 @@ window.onload = function () {
 
 		item.addEventListener('click', function () {
 				
-			// console.log(this);
+			console.log(this);
 			todoList.removeChild(this);	
 
 		});
