@@ -21,3 +21,26 @@ button{
     border-radius: 4px; 
     cursor: pointer;
 }
+
+.list{
+    position : relative;
+    height : 100px
+}
+
+.box {
+    position : relative;
+    width : 50%;
+}
+
+span{
+    padding : 20px
+}
+
+li{
+    padding : 4px
+}
+
+.done {
+    color : rgb(233, 17, 82)
+}
+
