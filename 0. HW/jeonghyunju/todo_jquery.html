@@ -6,40 +6,13 @@
             To Do List
         </title>
 
-        <link rel="stylesheet" href = "style.css"/>
+        <link rel="stylesheet" href="style.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src = "http://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src = "jscode.js"></script>
         <script>
-            $(document).ready(function(){
-                var input = ''
-                var index = 0
 
-                $('#save').click(function(){
-                    input = $('#todo').val()
-                    console.log(index)
-                    $('#list').append('<li id = todo_'+ index + '>'+ input + '</li>')
-                    $('input').val('')
-                })
-
-                // 삭제 - 더블 클릭
-                $('#list').on('dblclick','li', function(){
-                   $(this).remove()
-                })
-
-                // 완료 처리
-                $('#list').on('click','li', function(){
-                    var val = $(this).text()
-                    console.log("선언값: " + val)
-                    $('#done').append('<li>' + val + '</li>')
-                    $(this).remove()
-                })
-
-                // 초기화
-                $('#refresh').click(function(){
-                    $('#list').empty()
-                    $('input').val('')
-                })
-
-            })
+            // 람다식 function()과 다르다!(535쪽) : 
 
 
         </script>
@@ -47,22 +20,45 @@
     </head>
     
     <body>
+        <div class = "container">
+            
+            <div>
+                <input type = "text" id = "search_keyword" placeholder = "검색어를 입력하세요."/>
+                <button id = "search" onclick = "search();" class = "btn btn-primary">검색</button>
+            </div>
+
             <div id = "title" class = "title">
                     To Do List
             </div>
 
-            <div>
-                <input id = "todo" type = "text" placeholder = "할 일을 입력해주세요."/>
-                <button id = "save" class = "save">등록</button>
-                <button id = "refresh" class = "save">초기화</button>
+            <!--현재 시각-->
+            <p id = "date-and-time"></p> 
+
+            <div id = "todo">
+                <div class = "list_title">
+                    To Do
+                </div>
+
+                <div>
+                    <input type = "text" id = "input_todo" onkeydown = "add_list();" placeholder = "할 일을 입력해주세요."/>
+                </div>
+
+                <div>
+                    <ul id = "todo_list"></ul>
+                </div>
             </div>
 
-            <div class = 'list'>
-                <ul id = "list"></ul>
+
+            <div id = "done">
+                <div class = "list_title">
+                    Done
+                </div>
+
+                <div>
+                    <ul id = "done_list" class = "done"></ul>
+                </div>
             </div>
 
-            <div class = 'list'>
-                <ul id = "done" class = "done"></ul>
-            </div>
+        </div>
     </body>
 </html>
